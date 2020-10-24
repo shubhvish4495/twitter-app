@@ -1,0 +1,179 @@
+{
+	"variables": [],
+	"info": {
+		"name": "walruspay-interview-shubham",
+		"_postman_id": "65a4d390-9bf0-2edc-5dad-c91b1a3533b0",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login user",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/user/login?username=testuser@123&pwd=test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"login"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "testuser@123",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "pwd",
+							"value": "test",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Login for user to get token, this token needs to be put in every request for authentication"
+			},
+			"response": []
+		},
+		{
+			"name": "Logout Request",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/user/logout?username=testuser001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"logout"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "testuser001",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Logout request"
+			},
+			"response": []
+		},
+		{
+			"name": "Find user request",
+			"request": {
+				"url": "http://localhost:8080/user/find",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"user_name\" : \"testuser@123\",\n\t\"token\":\"dac255c1-6d38-4786-acc2-7f46bb901e8c\",\n\t\"find_user_handle\" : \"testuser001\"\n}"
+				},
+				"description": "Request to find user"
+			},
+			"response": []
+		},
+		{
+			"name": "Follow Request",
+			"request": {
+				"url": "http://localhost:8080/user/follow",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"user_name\" : \"testuser@123\",\n\t\"token\":\"dac255c1-6d38-4786-acc2-7f46bb901e8c\",\n\t\"follow_user_id\" : \"testuser002\"\n}"
+				},
+				"description": "Request to follow users"
+			},
+			"response": []
+		},
+		{
+			"name": "Like post Request",
+			"request": {
+				"url": "http://localhost:8080/posts/like",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"user_name\" : \"testuser@123\",\n\t\"token\":\"dac255c1-6d38-4786-acc2-7f46bb901e8c\",\n\t\"post_id\" : \"4\"\n}"
+				},
+				"description": "Like the post API request"
+			},
+			"response": []
+		},
+		{
+			"name": "Get posts Request",
+			"request": {
+				"url": "http://localhost:8080/posts/get",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"user_name\" : \"testuser@123\",\n\t\"token\":\"dac255c1-6d38-4786-acc2-7f46bb901e8c\",\n\t\"list_user_name\" : \"testuser001\"\n}"
+				},
+				"description": "Get posts by user name"
+			},
+			"response": []
+		},
+		{
+			"name": "Create post Request",
+			"request": {
+				"url": "http://localhost:8080/posts/create",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"user_name\" : \"testuser@123\",\n\t\"token\":\"ec63af14-9f80-470b-ab1a-8aee6c65fed2\",\n\t\"post_content\" : \"Hello my first post!!!!\"\n}"
+				},
+				"description": "Request to create new posts by each user"
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,13 @@
+version: '2'
+services:
+  app:
+    build: .
+    ports:
+     - "8080:8080"
+    links:
+      - "db:mysql"
+  db:
+    build: ./db-setup/
+    hostname: mysql
+    ports:
+     - "3306:3306"
